@@ -12,14 +12,14 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: us-east-1
+      AWS_DEFAULT_REGION: us-east-1 
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -backend-config="backend_config.tfvars"
 
       - name: Terraform Apply
-        run: terraform apply --auto-approve
+        run: terraform apply -auto-approve
