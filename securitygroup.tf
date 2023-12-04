@@ -19,4 +19,8 @@ resource "aws_security_group" "allow_all_traffic" {
     protocol    = "-1"  # -1 represents all protocols
     cidr_blocks = ["0.0.0.0/0"]  # Allow to all IP addresses (you can restrict this to specific IPs if needed)
   }
+  tags = {
+    Name = "sg-lambda"
+    Owner = "Awab"
+  }
 }

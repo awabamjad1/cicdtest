@@ -10,6 +10,10 @@ resource "aws_iam_role" "lambda_exec" {
       }
     }]
   })
+  tags = {
+    Name = "lamda_exec"
+    Owner = "Awab"
+  }
 }
 resource "aws_iam_policy" "lambda_exec" {
   name        = "lamda-exec"
@@ -33,6 +37,9 @@ resource "aws_iam_policy" "lambda_exec" {
       Resource = ["*"]
     }]
   })
+  tags = {
+    Owner = "Awab"
+  }
 }
 resource "aws_iam_role_policy_attachment" "example2" {
   policy_arn = aws_iam_policy.lambda_exec.arn
